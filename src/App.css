@@ -112,11 +112,11 @@ body{
 
 .card__inner .right img{
   width: 100%;
-  max-width: 300px;
+  max-width: 380px;
 }
 
 .card__inner .left {
-  max-width: 300px;
+  max-width: 380px;
   padding: 1.5rem;
 }
 

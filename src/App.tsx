@@ -8,7 +8,7 @@ import { isValidEmail } from './utils/validateEmail';
 function App() {
   const [validEmail, setValidEmail] = useState<boolean>();
   const [email, setEmailAddress] = useState<string>('');
-  // const [age, setAge] = useState<{ years: number; months: number; days: number } | null>(null);
+  // const [date, setDate] = useState<{ year: number; month: number; day: number } | null>(null);
   const [isError, setIsError] = useState<boolean>();
   const [isEmptyError, setIsEmptyError] = useState<boolean>();
 

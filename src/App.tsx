@@ -25,7 +25,11 @@ function App() {
           </form>
           </div>
           <div className="right">
-            <img src={illustrationDesktop} alt="illustration" />
+            <picture>
+              <source srcSet={illustrationMobile} media="(max-width: 662px)" />
+              <img src={illustrationDesktop} alt="illustration" />
+            </picture>
+            
           </div>
         </div>
     

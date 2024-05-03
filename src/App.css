@@ -37,11 +37,28 @@ body{
   padding: 1rem;
 }
 
+@media screen and (max-width: 662px) {
+  body{
+    padding: 0;
+    display: block;
+  }
+}
+
 .card{
   background-color: var(--White);
   padding: 2rem;
   border-radius: 2rem;
 }
+
+@media screen and (max-width: 662px) {
+  .card{
+    padding: 0;
+    border-radius: 0;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 
 .card__inner{
   display: flex;
@@ -49,13 +66,30 @@ body{
   gap: 3rem;
 }
 
+@media screen and (max-width: 662px) {
+  .card__inner{
+    flex-direction: column-reverse;
+  }
+
+  .card__inner .right{
+    width: 100%;
+    
+  }
+}
+
 .card__inner .right img{
   width: 100%;
-  
 }
 .card__inner .left {
   max-width: 400px;
 }
+
+@media screen and (max-width: 662px) {
+  .card__inner .left {
+    padding: 0 1rem;
+  }  
+}
+
 .card__inner .left h1{
   margin-bottom: 1rem;
 }
@@ -92,6 +126,12 @@ body{
   gap: 1rem;
 }
 
+.card__form label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  
+}
+
 .card__form input[type="button"], 
 .card__form input[type="text"]{
   padding: 0.75rem 1rem;
@@ -99,8 +139,19 @@ body{
   border: none;
 }
 
+.card__form input[type="text"]{
+  border: 1px solid var(--grey);
+}
+
 .card__form input[type="button"]{
   background: var(--dark-slate-grey);
   color: var(--White);
   cursor: pointer;
 }
+
+@media screen and (max-width: 662px) {
+  .card__inner .left {
+    padding: 0 1rem;
+  }  
+}
+

@@ -51,9 +51,9 @@ body{
   }
 }
 
-/* h1, label{
-  
-} */
+h1{
+  font-size: 48px;
+}
 
 .card{
   background-color: var(--White);
@@ -136,6 +136,7 @@ body{
 
 .card__copy {
   margin-bottom: 1rem;
+  line-height: 150%;
 }
 .card__copy--list{
   display: flex;

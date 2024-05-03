@@ -6,18 +6,31 @@ import successIcon from './assets/images/icon-success.svg';
 import { isValidEmail } from './utils/validateEmail';
 
 function App() {
-  const [validEmail, setValidEmail] = useState<boolean>(true);
+  const [validEmail, setValidEmail] = useState<boolean>();
   const [email, setEmailAddress] = useState<string>('');
   // const [age, setAge] = useState<{ years: number; months: number; days: number } | null>(null);
-
-  const [error, setError] = useState<string>("");
+  const [isError, setIsError] = useState<boolean>();
 
   const checkEmailValidity=(email: string) :void=>{
-    isValidEmail(email) ? setValidEmail(true): setValidEmail(false)
+    if (email!=='') {
+      if(isValidEmail(email)){
+        setValidEmail(true)
+        setIsError(false)
+      }else{
+        setValidEmail(false)
+        setIsError(true)
+      }
+    } else{
+      //if no email value reset error and valid email
+        setValidEmail(false)
+        setIsError(false)
+    }
+
   }
   const dismissSuccessModal=()=>{
     setValidEmail(false);
     setEmailAddress('');
+    setIsError(false);
   }
 
   if (!validEmail) {
@@ -34,8 +47,9 @@ function App() {
           </ul>
           
           <div className="card__form">
-            <label htmlFor="email_field">Email address</label>
-            <input type="text" 
+            <label htmlFor="email_field"><span className='email_label'>Email address </span><span className='error_label'>{`${email!=''&& validEmail===false && isError===true ? 'Valid email required': ''}`} </span></label>
+            <input type="text"
+              className={`${email!=''&& validEmail===false && isError===true ? 'error__input': ''}`} 
               id='email_field' 
               placeholder='email@company.com' 
               onChange={(e)=>{setEmailAddress(e.target.value)}}/>

@@ -12,6 +12,7 @@
   /* ### Primary */
 
   --tomato: hsl(4, 100%, 67%);
+  --tomato-light: hsla(4, 100%, 67%, 0.4);
 
   /* ### Neutral */
 
@@ -142,8 +143,10 @@ body{
 .card__form label {
   font-size: 0.68rem;
   font-weight: 700;
-  
+  display: flex;
+  justify-content: space-between;
 }
+
 
 .card__form input[type="button"], 
 .card__form input[type="text"]{
@@ -170,3 +173,12 @@ body{
 }
 
 
+.error__input, .error_label{
+  color: var(--tomato);
+}
+
+
+.card__form input[type="text"].error__input{
+  border: 1px solid var(--tomato);
+  background: var(--tomato-light);
+}

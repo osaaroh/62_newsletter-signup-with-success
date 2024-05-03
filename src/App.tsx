@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import './App.css'
 import illustrationDesktop from './assets/images/illustration-sign-up-desktop.svg';
 import illustrationMobile from './assets/images/illustration-sign-up-mobile.svg';
 import successIcon from './assets/images/icon-success.svg';
 import { isValidEmail } from './utils/validateEmail';
+import gsap from 'gsap';
 
 function App() {
   const [validEmail, setValidEmail] = useState<boolean>();
@@ -25,6 +26,8 @@ function App() {
       if(isValidEmail(email)){
         setValidEmail(true)
         setIsError(false)
+
+        gsap.from(".card", { y: 100, opacity: 0, fill: 'blue', });
       }else{
         setValidEmail(false)
         setIsError(true)
@@ -39,9 +42,8 @@ function App() {
   const dismissSuccessModal=()=>{
     setEmailAddress('');
     resetError();
+    gsap.from(".card", { y: -100, opacity: 0 });
   }
-
-
 
 
 

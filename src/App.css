@@ -27,6 +27,10 @@
   --font-size-paragraph: 16px;
 }
 
+input, textarea{
+  font-family: var(--font-roboto);
+}
+
 body{
   display: flex;
   justify-content: center;
@@ -59,7 +63,16 @@ body{
   }
 }
 
+.card__success{
+  max-width: 400px;
+}
 
+.card__success--inner img,
+.card__success--inner h1,
+.card__success--inner p
+{
+  margin-bottom: 1rem;
+}
 .card__inner{
   display: flex;
   align-items: center;
@@ -147,11 +160,13 @@ body{
   background: var(--dark-slate-grey);
   color: var(--White);
   cursor: pointer;
+  transition: all .3s;
+}
+.card__form input[type="button"]:hover{
+  background: linear-gradient(to right, var(--tomato), orange);
+  color: var(--White);
+  cursor: pointer;
+  transition: all .3s;
 }
 
-@media screen and (max-width: 662px) {
-  .card__inner .left {
-    padding: 0 1rem;
-  }  
-}
 

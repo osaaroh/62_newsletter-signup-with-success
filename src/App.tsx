@@ -12,6 +12,14 @@ function App() {
   const [isError, setIsError] = useState<boolean>();
   const [isEmptyError, setIsEmptyError] = useState<boolean>();
 
+    //reset error onInputChange
+    const resetError=()=>{
+      setValidEmail(false);
+      setIsError(false);
+      setIsEmptyError(false);
+    }
+  
+
   const checkEmailValidity=(email: string) :void=>{
     if (email!=='') {
       if(isValidEmail(email)){
@@ -23,18 +31,19 @@ function App() {
       }
     } else{
       //if no email value, reset error and valid email
-        setValidEmail(false)
-        setIsError(false)
+        resetError();
         setIsEmptyError(true)
     }
+  }
 
-  }
   const dismissSuccessModal=()=>{
-    setValidEmail(false);
     setEmailAddress('');
-    setIsError(false);
-    setIsEmptyError(false);
+    resetError();
   }
+
+
+
+
 
   if (!validEmail) {
     return (
@@ -55,7 +64,10 @@ function App() {
               className={`${email!=''&& validEmail===false && isError===true ? 'error__input': ''}`} 
               id='email_field' 
               placeholder='email@company.com' 
-              onChange={(e)=>{setEmailAddress(e.target.value)}}/>
+              onChange={(e)=>{
+                setEmailAddress(e.target.value);
+                resetError();
+                }}/>
             <input type="button" 
             value="Subscribe to monthly newsletter" 
             onClick={()=>checkEmailValidity(email)}/>

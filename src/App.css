@@ -12,7 +12,7 @@
   /* ### Primary */
 
   --tomato: hsl(4, 100%, 67%);
-  --tomato-light: hsla(4, 100%, 67%, 0.4);
+  --tomato-light: hsla(4, 100%, 67%, 0.15);
 
   /* ### Neutral */
 
@@ -30,6 +30,7 @@
 
 input, textarea{
   font-family: var(--font-roboto);
+  font-weight: 700;
 }
 
 body{
@@ -59,14 +60,27 @@ body{
   .card{
     padding: 0;
     border-radius: 0;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 1.5rem;
   }
 }
 
 .card__success{
   max-width: 400px;
 }
+
+@media screen and (max-width: 662px) {
+  .card__success{
+    max-width: unset;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-bottom: unset;
+  }
+}
+
 
 .card__success--inner img,
 .card__success--inner h1,

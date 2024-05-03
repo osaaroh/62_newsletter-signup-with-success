@@ -10,6 +10,7 @@ function App() {
   const [email, setEmailAddress] = useState<string>('');
   // const [age, setAge] = useState<{ years: number; months: number; days: number } | null>(null);
   const [isError, setIsError] = useState<boolean>();
+  const [isEmptyError, setIsEmptyError] = useState<boolean>();
 
   const checkEmailValidity=(email: string) :void=>{
     if (email!=='') {
@@ -21,9 +22,10 @@ function App() {
         setIsError(true)
       }
     } else{
-      //if no email value reset error and valid email
+      //if no email value, reset error and valid email
         setValidEmail(false)
         setIsError(false)
+        setIsEmptyError(true)
     }
 
   }
@@ -31,6 +33,7 @@ function App() {
     setValidEmail(false);
     setEmailAddress('');
     setIsError(false);
+    setIsEmptyError(false);
   }
 
   if (!validEmail) {
@@ -47,7 +50,7 @@ function App() {
           </ul>
           
           <div className="card__form">
-            <label htmlFor="email_field"><span className='email_label'>Email address </span><span className='error_label'>{`${email!=''&& validEmail===false && isError===true ? 'Valid email required': ''}`} </span></label>
+            <label htmlFor="email_field"><span className='email_label'>Email address </span><span className='error_label'>{`${email!=''&& validEmail===false && isError===true ? 'Valid email required': '' || email===''&& validEmail===false && isEmptyError===true? 'Field cannot be empty' :'' } `} </span></label>
             <input type="text"
               className={`${email!=''&& validEmail===false && isError===true ? 'error__input': ''}`} 
               id='email_field' 
@@ -75,7 +78,7 @@ function App() {
         <div className="card__success--inner">
           <img src={successIcon} alt="Success" />
           <h1>Thanks for subscribing!</h1>
-          <p>A confirmation email has been sent to <b>ash@loremcompany.com. </b> 
+          <p>A confirmation email has been sent to <b>{email?email:'ash@loremcompany.com'}. </b> 
             Please open it and click the button inside to confirm your subscription.</p>
         </div>
 

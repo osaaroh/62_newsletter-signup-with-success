@@ -1,5 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root{
+  /* ## Colors */
+
+  /* ### Primary */
+
+  --tomato: hsl(4, 100%, 67%);
+
+  /* ### Neutral */
+
+  --dark-slate-grey: hsl(234, 29%, 20%);
+  --charcoal-grey: hsl(235, 18%, 26%);
+  --grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+
+  /* ## Typography */
+
+  /* ### Body Copy */
+  --font-roboto: "Roboto", sans-serif;
+  --font-size-paragraph: 16px;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--dark-slate-grey);
+  font-family: var(--font-roboto);
+  padding: 1rem;
+}
+
+.card{
+  background-color: var(--White);
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.card__inner{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.card__inner .right img{
+  width: 100%;
+  
+}
+.card__inner .left {
+  max-width: 400px;
+}
+.card__inner .left h1{
+  margin-bottom: 1rem;
+}
+
+.card__copy {
+  margin-bottom: 1rem;
+}
+.card__copy--list{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.card__copy--list p::before{
+  content: '';
+  background-image: url(./assets/images/icon-list.svg);
+  display: block;
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 25px;
+}
+.card__copy--list p{
+  display: flex;
+  gap: 1rem;
+}
+
+.card__inner .left ul {
+  list-style: none;
+}
+
+.card__form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.card__form input[type="button"], 
+.card__form input[type="text"]{
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.card__form input[type="button"]{
+  background: var(--dark-slate-grey);
+  color: var(--White);
+  cursor: pointer;
 }
